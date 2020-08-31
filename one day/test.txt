@@ -1,6 +1,0 @@
-FTP Server/Host: one1day.orgfree.com
-FTP Login/Username: one1day.orgfree.com
-FTP PassWord: yaakoub0000
-
-
-
