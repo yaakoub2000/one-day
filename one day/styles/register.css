@@ -1,0 +1,224 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: titles;
+}
+:root{
+    --first_color:#0fbcf9;
+    --text_color_white:#ffffff;
+    --text_color_black:#272727;
+    --third_color:#e0e0e0;
+}
+/* fonts */
+@font-face {
+    font-family: logo;
+    src: url(../fonts/logo.ttf);
+  }
+@font-face {
+    font-family: titles;
+    src: url(../fonts/Ubuntu.ttf);
+  }
+/* start register page */
+.container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: var(--text_color_black);
+    overflow: hidden;
+}
+.container .back-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: blur(8px);
+    opacity: .85;
+    z-index: 1;
+    pointer-events: none;
+}
+.container .user{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    max-width: 400px;
+    min-height: 300px;
+    width: 85%;
+    background: var(--text_color_white);
+    padding: 50px 20px 30px 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,.16),
+                0 2px 15px rgba(0,0,0,.3);
+    text-align: center;
+}
+.container .user h2{
+    font-size: 30px;
+    font-weight: 400;
+}
+.container .user #subtext{
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 200;
+    margin:10px 0;
+    text-align: left;
+}
+.container .user #subtext > a{
+    text-decoration: none;
+}
+.container .user .input-groupe{
+    position: relative;
+    margin: 5px 0;
+}
+.container .user .input-groupe i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    margin-left: 10px;
+    color: var(--first_color);
+}
+.container .user .input-groupe input,
+.container .user .input-groupe select{
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 2px solid var(--first_color);
+    padding: 10px 35px;
+    width: 100%;
+    font-size: 18px;
+    color: var(--text_color_black);
+}
+.container .user .input-groupe .age{
+    display: flex;
+    flex-direction: row;
+}
+.container .user .input-groupe .age .age_select{
+    padding: 10px 10px 10px 35px;
+    font-size: 18px;
+    text-align: center;
+}
+.container .user .input-groupe input::placeholder{
+    color: #aaaaaa;
+}
+.container .user .btn{
+    position: relative;
+    padding: 10px 23px;
+    background: var(--first_color);
+    box-shadow:  0 2px 5px rgba(0,0,0,.16),
+                 0 2px 10px rgba(0,0,0,.19);
+    color: var(--text_color_white);
+    border: none;
+    outline: none;
+    margin:10px 0;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.container .user .btn:hover,.container .animated-box .btn:hover{
+    box-shadow:inset  0 2px 5px rgba(0,0,0,.16),
+               inset  0 2px 10px rgba(0,0,0,.19);
+}
+.container .sign-in {
+    display: none;
+}
+.container .animated-box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background: var(--first_color);
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,.16),
+                0 2px 20px rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.container .animated-box.anim-page{
+    animation:animate-left-box 1.5s .5s ease-in-out;
+}
+@keyframes animate-left-box{
+    0%,100%{width: 20%;}
+    25%{
+        width: 15%;
+    }
+    50%{
+        width: 100%;
+        z-index: 10;
+    }
+}
+.container .animated-box .bx-s{
+    position: absolute;
+    width: 100%;
+    transition: 1s;
+}
+.container .animated-box .bx-left-neg{
+    left: -100%;
+    right: 0;
+}
+.container .animated-box .bx-left-pos{
+    left: 0;
+}
+.container .animated-box h2{
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--text_color_white);
+    background: var(--text_color_black);
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+}
+.container .animated-box .btn{
+    position: relative;
+    padding: 10px 30px;
+    background: var(--text_color_white);
+    box-shadow:  0 2px 5px rgba(0,0,0,.16),
+                 0 2px 10px rgba(0,0,0,.19);
+    color: var(--text_color_black);
+    border: none;
+    outline: none;
+    margin-top: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+/* start media responsive */
+    @media (max-width:720px){
+    .container .animated-box{
+        width: 100%;
+        height: 20%;
+    }
+    .container .user{
+            margin-top: 60px;
+    } 
+    .container .animated-box .bx-left-neg{
+        top: -130%;
+        transform: translateX(-50%);
+        left: 50%;
+    }
+    .container .animated-box .bx-left-pos{
+        top: 0;
+    }
+    @keyframes animate-left-box{
+        0%,100%{height: 20%;}
+        25%{
+            height: 15%;
+        }
+        50%{
+            height: 100%;
+            z-index: 10;
+        }
+    }
+    .container .animated-box .btn{
+        margin-top: 15px;
+    }
+}
+/* end media responsive */
+/* end register page */
